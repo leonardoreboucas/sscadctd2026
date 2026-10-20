@@ -106,7 +106,7 @@ const S=[
  tx('elasticidade automática',1160,680,28,C.mut,'center',500,P(1,.6,2.2));
  const q=P(1,.8,2.4);rb(1520,420,300,210,C.cd,C.am,q);tx('Pagamento',1670,480,32,C.ink,'center',700,q);tx('sob demanda',1670,525,32,C.ink,'center',700,q);tx('US$ '+(clk*.37%9.99).toFixed(2).replace('.',','),1670,585,34,C.am,'center',800,q)}},
 
-{s:2,tm:45,n:'FaaS cobra por execução e escala sozinho, mas cada provedor implementa de forma diferente: o mesmo código tem custo e tempo distintos em cada nuvem. Qual escolher? Esses são os seis desafios que motivam a tese: implementações diferentes, falta de ferramentas, testes repetitivos, dependência de monitoramento, dificuldade de escolha e custos desestruturados.',d(){
+{s:2,tm:45,n:'FaaS cobra por execução e escala sozinho, mas cada provedor implementa de forma diferente: o mesmo código tem custo e tempo distintos em cada nuvem. Qual escolher? Esses são os seis desafios que motivam a tese: implementações diferentes, análise estruturada, repetitividade, dependência de monitoramento, custos desestruturados e, o mais importante, a escolha do provedor.',d(){
  head('Introdução','FaaS multi-nuvem: onde executar?');
  const m=P(1,1),s0=lp(1,.46,m);
  x.save();x.translate(lp(0,54,m),lp(0,639,m));x.scale(s0,s0);
@@ -116,11 +116,11 @@ const S=[
   rb(1350,y+22,[.5,.8,.35,.95][i]*340*q,28,c,0,1,8);rb(1350,y+70,[.7,.45,.9,.6][i]*340*q,28,c,0,.6,8)});
  tx('?',1795,540,200,C.am,'center',800,P(0,1,1.8)*(.7+.3*Math.sin(clk*3)));
  x.restore();
- const D=[['Implementações diferentes','Diferenças de implementação entre os provedores',C.aws],['Falta de ferramentas','Necessidade de ferramentas de análise',C.gcp],['Testes repetitivos','Implementação repetitiva de testes',C.az],['Dependem de monitoramento','Ferramentas atuais necessitam de dados de monitoramento',C.ali],['Qual provedor escolher?','Dificuldade ao definir o melhor provedor para uma aplicação',C.am],['Custos desestruturados','Estimativas de custos desestruturadas',C.bl]];
+ const D=[['Implementações diferentes','Diferenças de implementação entre os provedores',C.aws],['Análise Estruturada','Necessidade de ferramentas de análise',C.gcp],['Repetitividade','Permitindo comparações justas.',C.az],['Dependem de monitoramento','Ferramentas atuais necessitam de dados de monitoramento',C.ali],['Custos desestruturados','Estimativas de custos desestruturadas',C.bl],['Qual provedor escolher?','Dificuldade ao definir o melhor provedor para uma aplicação',C.am]];
  if(st>0){tx('Desafios de FaaS',980,835,56,C.ink,'left',800,P(1,.6,.5));tx('Seis obstáculos para escolher onde executar',980,895,30,C.mut,'left',500,P(1,.6,.7));
   D.forEach((d,i)=>{const o=P(1,.7,.7+i*.22),X=100+(i%3)*600,Y=190+Math.floor(i/3)*265+(1-o)*50+Math.sin(clk*1.3+i)*3;
-   rb(X,Y,560,235,C.cd,i==4?d[2]:C.ln,o,22);rb(X,Y,560,12,d[2],0,o,6);
-   if(i==4)rb(X-6,Y-6,572,247,0,d[2],o*(.25+.2*Math.sin(clk*3)),26);
+   rb(X,Y,560,235,C.cd,i==5?d[2]:C.ln,o,22);rb(X,Y,560,12,d[2],0,o,6);
+   if(i==5){rb(X-6,Y-6,572,247,0,d[2],o*(.25+.2*Math.sin(clk*3)),26);rb(X+318,Y-18,226,38,d[2],0,o,19);tx('★ mais importante',X+431,Y+1,22,C.bg,'center',800,o)}
    dot(X+62,Y+82,36,d[2],o);tx(String(i+1),X+62,Y+85,40,C.bg,'center',800,o);ft(d[0],X+118,Y+80,420,32,C.ink,800,o);
    wr(d[1],500,28,500).forEach((l,j)=>tx(l,X+36,Y+150+j*36,28,C.mut,'left',500,o))})}}},
 
@@ -356,7 +356,7 @@ const S=[
   ['Dependência de APIs e modelos específicos de provedores','Dificuldades na incorporação de novos provedores','Acoplamento entre componentes','Cobertura de cenários','Dependência de configuração e credenciais'].forEach((t,i)=>{const q=P(0,.6,1.9+i*.2)*fd,X=100+i*348,Y=635+(1-q)*40+Math.sin(clk*1.5+i)*3;
    x.setLineDash([12,8]);rb(X,Y,328,285,C.cd,C.er,q,20);x.setLineDash([]);warnIc(X+44,Y+52,22,q*(.7+.3*Math.sin(clk*3+i)),C.er);
    wr(t,280,28,600).forEach((l,j)=>tx(l,X+24,Y+120+j*38,28,C.ink,'left',600,q))})}
- if(st>0){tx('Endereçando as observações da banca: generalização, comparação com outros modelos e diversidade do dataset',100,225,30,C.mut,'left',500,P(1,.6,.3));const PT=[[260,780],[590,540],[920,780],[1250,540],[1580,780]],pr=P(1,2.4,.5),LB=[['Validação com','aplicações inéditas'],['Comparação com Random Forest','e Gradient Boosting'],['Métricas estáticas','e dinâmicas combinadas'],['Dataset mais diverso','e multilinguagem'],['Previsão com incerteza','e aprendizado contínuo']];
+ if(st>0){const PT=[[260,780],[590,540],[920,780],[1250,540],[1580,780]],pr=P(1,2.4,.5),LB=[['Validação com','aplicações inéditas'],['Comparação com Random Forest','e Gradient Boosting'],['Métricas estáticas','e dinâmicas combinadas'],['Dataset mais diverso','e multilinguagem'],['Previsão com incerteza','e aprendizado contínuo']];
   for(let k=0;k<4;k++){const f=cl(pr*4-k);if(f>0)ln(PT[k][0],PT[k][1],lp(PT[k][0],PT[k+1][0],f),lp(PT[k][1],PT[k+1][1],f),C.bl,6,.8)}
   PT.forEach((q,i)=>{const o=cl(pr*5-i),dn=q[1]>700;dot(q[0],q[1],26*o,PC[i%4]);tx(String(i+1),q[0],q[1]+2,28,C.bg,'center',800,o);LB[i].forEach((l,j)=>tx(l,q[0],dn?q[1]+76+j*44:q[1]-118+j*44,32,C.ink,'center',j?500:700,o))});
   if(pr>=1){const u=(clk*.1)%1,sg=Math.min(3.999,u*4),i=Math.floor(sg),f=sg-i,X=lp(PT[i][0],PT[i+1][0],f),Y=lp(PT[i][1],PT[i+1][1],f);dot(X,Y,26,C.am,.25);dot(X,Y,13,C.am)}}}},
@@ -365,7 +365,7 @@ const S=[
  const a=P(0,1);PC.forEach((c,i)=>{const t=clk*.5+i*1.57;dot(1400+Math.cos(t)*260,420+Math.sin(t)*170,22,c,a)});
  x.strokeStyle=C.ln;x.lineWidth=2;x.beginPath();x.ellipse(1400,420,260,170,0,0,7);x.stroke();
  tx('Orama++',100,260,170,C.ink,'left',800,a);tx('Obrigado',104,460,120,C.am,'left',800,P(0,.8,.2));
- tx('Leonardo Rebouças de Carvalho',104,945,44,C.ink,'left',700,P(0,.8,.3));tx('Orientadora: Aletéia Patrícia Favacho Araújo',104,1005,32,C.mut,'left',500,P(0,.8,.4));
+ tx('Leonardo Rebouças de Carvalho',104,895,44,C.ink,'left',700,P(0,.8,.3));tx('Orientadora: Aletéia Patrícia Favacho Araújo',104,952,32,C.mut,'left',500,P(0,.8,.4));tx('leouesb@gmail.com',104,1008,32,C.bl,'left',700,P(0,.8,.5));
  logos(P(0,.8,.3))}}
 ];
 let TT=0;S.forEach(d=>{d.c=TT;TT+=d.tm});
